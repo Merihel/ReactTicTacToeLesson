@@ -6,20 +6,23 @@ class GameBoard extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             cells: Array(9).fill(null),
             //lastCells: Array(9).fill(null),
             isNext: true
         };
     }
-
+    
     renderCell(i) {
         return <Cell value={this.state.cells[i]} onClick={() => this.handleClick(i)} />
     }
 
     renderParams(i) {
-        return <GameParams/>
+        //return <GameParams onChange={this.getNameValues()} />
+    }
+    
+    getNameValues() {
+        console.log("coucou")
     }
 
     handleClick(i) {
@@ -43,6 +46,7 @@ class GameBoard extends React.Component {
     } */
 
     render() {
+        console.log(this.props);
         let gameStatus;
         const winner = calculateWinner(this.state.cells);
         if (winner === "X") {
